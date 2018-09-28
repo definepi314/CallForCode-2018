@@ -1,0 +1,464 @@
+/* Base styles */
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    min-height: 100%;
+    background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
+    color: #777;
+}
+
+#toggleProfile{
+    font-size: 120%;
+    font-weight: 700;
+    padding-top: 25px;
+    color: #d85454;
+
+}
+
+#userNameProfile{
+    font-size: 120%;
+    font-weight: 700;
+    padding-top: 25px;
+    color: green;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color:  #497BE8;
+    background: #6666FF;
+}
+
+
+/* Container */
+
+.container {
+    position: absolute;
+    width: 50em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -30%);
+    /*animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;*/
+}
+
+
+/* Profile Card */
+
+.profile {
+    position: relative;
+}
+
+.profile--open {}
+
+.profile--open .profile__form {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    transform: translateY(-6em);
+    padding-top: 6em;
+}
+
+.profile--open .profile__fields {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile--open .profile__avatar {}
+
+.profile__form {
+    position: relative;
+    background: white;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    padding: 1em;
+    border-radius: .25em;
+    -webkit-filter: drop-shadow(0 0 2em rgba(0, 0, 0, 0.2));
+    transition: opacity .4s ease-in-out, height .4s ease-in-out, transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.profile__fields {
+    margin-top: -5%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.profile__avatar {
+    top: -100px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1.25em;
+    display: block;
+    transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform;
+}
+
+.profile__avatar:focus {
+    outline: 0;
+}
+
+.profile__footer {
+    margin-left: 41%;
+    padding-top: 1em;
+}
+
+
+/* Form */
+
+.field {
+    position: relative;
+    margin-bottom: 2em;
+}
+
+.hyper {
+    font-size: 10px;
+    float: right;
+}
+
+.label {
+    position: absolute;
+    height: 2rem;
+    line-height: 2rem;
+    bottom: 0;
+    color: #999;
+    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.input-field {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.pass-width{
+    margin-left: 10%;
+     width: 75%;
+}
+
+.input:focus {
+    outline: 0;
+    border-color: #ccc;
+}
+
+
+/* Using required and a faux pattern to see if input has text from http://stackoverflow.com/questions/16952526/detect-if-an-input-has-text-in-it-using-css */
+
+.input:focus+.label,
+input:valid+.label {
+    transform: translateY(-100%);
+    font-size: 0.75rem;
+    color: #ccc;
+}
+
+
+/* Button */
+
+.btn {
+    border: 0;
+    font-size: 0.75rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    border-radius: .25rem;
+    letter-spacing: .2em;
+    transition: background .2s;
+}
+
+.reset{
+    background:#f03e3e;
+}
+.register{
+    background:#04aa93;
+}
+
+.rit {
+    float: right;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+
+.btn:focus {
+    opacity: 0.63;
+}
+
+
+/* Intro animation */
+
+@keyframes intro {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+    to {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+.titleName {
+    font-size: 50px;
+    color: #6666ff;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+}
+
+.opsTitle {
+    opacity: 0.63;
+}
+
+.alert{
+    color: red;
+    font-size: 80%;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.row{
+    margin-right: 0px; 
+    margin-left: 0px; 
+}
+
+.validateLogo{
+    position: absolute;
+    top: 153px;
+    right: 39px;
+    cursor: pointer
+}
+.progress {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.building {
+    opacity: 0.5;
+}
+
+
+.build-success {
+    border-top: green 3px solid;
+}
+
+.mat-progress-bar {
+    opacity: 1;
+}
+
+.building-progress {
+    opacity: 1;
+}
+
+.build-failure {
+    border-top: red 3px solid;
+}
+#helpButton i{ 
+    font-size:150%;
+    color:#9696fc !important;
+    cursor: pointer
+  }
+  #helpButton{
+    float: right;
+    z-index: 1000;
+    position: relative;
+    left: 38%;
+  }
+
+
+/* For mobile phones: */
+
+.name{
+    width: 100%; 
+}
+
+.error{
+    position: absolute;
+    font-size: 77%;
+    margin-top: -1%;
+}
+.email{
+     width: 100%;
+    
+}
+.password{
+ width: 100%; 
+}
+.confirmPassword{
+ width: 100%; 
+}
+
+.checkBox{
+    width: 100%; 
+     position: relative;
+    top: 17px;
+    left: -7%; 
+}
+
+.country{
+    width: 100%;
+}
+.state{
+    width: 100%; 
+}
+.mobile{
+    width:100%
+}
+.city{
+    width:100%
+}
+.landmark{
+    width:100%
+}
+.selectLocation{
+     width:100%
+}
+.lat{
+    width:100%
+}
+.long{
+    width:100%
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+.name{
+    width: 50%;
+   
+}
+
+.error{
+    position: absolute;
+    font-size: 77%;
+    margin-top: -4%;
+}
+
+.email{
+     width: 50%;
+}
+
+.password{
+ width: 50%; 
+}
+.confirmPassword{
+ width: 50%; 
+}
+
+.checkBox{
+    width: 50%; 
+        position: relative;
+    top: 17px;
+    left: -7%; 
+}
+.country{
+    width: 50%; 
+}
+.state{
+    width: 50%; 
+}
+.mobile{
+    width:50%
+}
+.city{
+    width:50%
+}
+.landmark{
+    width:50%
+}
+.selectLocation{
+     width:50%
+}
+.lat{
+    width:50%
+}
+.long{
+    width:50%
+}
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+.name{
+    width: 33.33%;
+}
+
+.error{
+    position: absolute;
+    font-size: 77%;
+    margin-top: -1%;
+}
+
+.email{
+     width: 33.33%;
+}
+.password{
+ width: 33.33%; 
+}
+.confirmPassword{
+ width: 33.33%; 
+}
+.checkBox{
+    width: 33.33%; 
+        position: relative;
+    top: 17px;
+    left: -7%; 
+}
+
+.country{
+    width: 33.33%; 
+}
+.state{
+    width: 33.33%; 
+}
+.mobile{
+    width:33.33%
+}
+.city{
+    width:33.33%
+}
+.landmark{
+    width:33.33%
+}
+.selectLocation{
+     width:33.33%
+}
+.lat{
+    width:33.33%
+}
+.long{
+    width:33.33%
+}
+}
+

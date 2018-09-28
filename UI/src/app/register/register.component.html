@@ -1,0 +1,152 @@
+<div *ngIf="userRegister;then  register else showUserName "></div>
+<ng-template #register>
+  <div class="container">
+
+    <div class="profile--open">
+      <div class="profile__avatar" id="toggleProfile">
+        User Registration
+      </div>
+      <div class="profile__form">
+        <mat-progress-bar class="progress" mode="indeterminate" [hidden]="isNotLoading"></mat-progress-bar>
+        <div class="profile__fields">
+          <form class="form-inline" [formGroup]="regForm" (ngSubmit)="registerUser()">
+            <div class="row" style="width:100%">
+              <div class="name">
+                <mat-form-field color="primary">
+                  <input id="firstName" matInput placeholder="First Name *" formControlName="firstName">
+                </mat-form-field>
+                <mat-error class="error" *ngIf="!regForm.controls['firstName'].valid && regForm.controls['firstName'].touched">Minimum 3 characters Required</mat-error>
+              </div>
+              <div class="name">
+                <mat-form-field color="primary">
+                  <input id="middleName" matInput placeholder="Middle Name" formControlName="middleName">
+                </mat-form-field>
+              </div>
+              <div class="name">
+                <mat-form-field color="primary">
+                  <input id="lastName" matInput placeholder="Last Name *" formControlName="lastName">
+                </mat-form-field>
+                <mat-error class="error" *ngIf="!regForm.controls['lastName'].valid && regForm.controls['lastName'].touched">Minimum 3 characters Required</mat-error>
+              </div>
+            </div>
+            <div class="row" style="width:100%">
+              <div class="email">
+                <mat-form-field color="primary">
+                  <input id="email" matInput placeholder="Email *" formControlName="email">
+                </mat-form-field>
+                <mat-error class="error" *ngIf="!regForm.controls['email'].valid && regForm.controls['email'].touched">Enter Valid Email</mat-error>
+              </div>
+              <div class="password">
+                <mat-form-field color="primary">
+                  <input type="password" id="password" matInput placeholder="Password *" formControlName="password">
+                </mat-form-field>
+                <mat-error class="error" *ngIf="!regForm.controls['password'].valid && regForm.controls['password'].touched ">Minimum 3 characters Required</mat-error>
+              </div>
+              <div class="confirmPassword">
+                <mat-form-field color="primary">
+                  <input type="password" id="confirmPassword" matInput placeholder="Confirm Password *" formControlName="confirmPassword">
+                </mat-form-field>
+                <mat-error class="error" *ngIf="!regForm.controls['confirmPassword'].valid && regForm.controls['confirmPassword'].touched">Password must be greater than 6 characters</mat-error>
+                <mat-error style="margin-top: -2.5%;" class="error" *ngIf="!isConfirm && regForm.controls['confirmPassword'].touched">Password Did not Match</mat-error>
+              </div>
+            </div>
+            <div class="row" style="width:100%">
+              <div class="checkBox">
+                <mat-checkbox [(ngModel)]="isPhysicallyChallenged" [ngModelOptions]="{standalone: true}">Physically Challenged</mat-checkbox>
+              </div>
+              <div class="country">
+                <mat-form-field>
+                  <mat-select placeholder="Country *" formControlName="country" (selectionChange)="changeCountry($event)" [disabled]="false">
+                    <mat-option *ngFor="let country of countries" [value]="country">
+                      {{ country.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="state">
+                <mat-form-field>
+                  <mat-select placeholder="States *" formControlName="state" (selectionChange)="changeState($event)" [disabled]="false">
+                    <mat-option *ngFor="let state of states" [value]="state">
+                      {{ state.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row" style="width:100%">
+              <div class="mobile">
+                <mat-form-field>
+                  <input id="mobileNumber" matInput placeholder="Mobile Number" formControlName="mobile">
+                </mat-form-field>
+              </div>
+              <div class="city">
+                <mat-form-field>
+                  <mat-select placeholder="City *" formControlName="city" (selectionChange)="changeCity($event)" [disabled]="false">
+                    <mat-option *ngFor="let city of cities" [value]="city">
+                      {{ city.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="landmark">
+                <mat-form-field>
+                  <mat-label>LandMark</mat-label>
+                  <textarea matInput formControlName="landmark" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
+                    cdkAutosizeMaxRows="5"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row" style="width:100%">
+              <div class="selectLocation">
+                <button type="button" class="register" style="width: 80%;" mat-button (click)="selectLocation()">Select Location</button>
+              </div>
+              <div class="lat">
+                <mat-form-field>
+                  <input id="latitude" matInput placeholder="Latitude *" formControlName="latitude" [disabled]="true">
+                </mat-form-field>
+              </div>
+              <div class="long">
+                <mat-form-field>
+                  <input id="longitude" matInput placeholder="Longitude *" formControlName="longitude" [disabled]="true">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="profile__footer">
+              <button type="button" class="btn back" (click)="backButton()">Back</button>
+              <button type="button" style="margin-left: 15.5px" class="btn reset" (click)="reset()">Reset</button>
+              <button type="submit" style="margin-left: 15.5px" class="btn register rit" [disabled]="!regForm.valid ||!isConfirm || !isLocationSelected">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</ng-template>
+<ng-template #showUserName>
+  <div class="container">
+
+    <div class="profile--open">
+      <div class="profile__avatar" id="userNameProfile">
+        Successfully Registered !!!
+      </div>
+      <div class="profile__form">
+        <div class="profile__fields">
+          <h5 style="text-align:center">Your UserName is
+            <b>{{userName}}</b>
+          </h5>
+          <h6 style="text-align:center;font-size:72%;color:red">Note: Kindly Note your Username</h6>
+          <h5 style="text-align:center">Go to
+            <a routerLink="/login">Login</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
