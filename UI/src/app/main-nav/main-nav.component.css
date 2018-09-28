@@ -1,0 +1,148 @@
+.sidenav-container {
+  height: 100%;
+}
+
+#logout{
+position: absolute;
+    right: 26px;
+        font-size: 200%;
+    color: ghostwhite;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow:3px 0 6px rgba(0, 0, 0, 0.24)
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+.hidden{
+  display:none
+}
+
+.active{
+  background-color: #16a282;
+  color: white !important
+}
+
+.bg-light {
+    background-color: #b9dcc7!important;
+}
+nav ul li a {
+  color: black
+}
+
+nav ul li a:hover {
+  background-color: #b0b9b7
+}
+nav ul li a:focus {
+ background-color: #16a282 !important;
+}
+
+::ng-deep.mat-menu-content {
+ background-color: #b9dcc7!important;
+}
+
+@media (min-width: 1281px) {
+  .sidenav {
+display: none
+}
+.desktopView{
+  display: block
+}
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .desktopView{
+    display: block
+  }
+
+  .sidenav {
+    display: none
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .desktopView{
+    display: block
+  }
+
+  .sidenav {
+    display: none
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+  .desktopView{
+   display: block
+ }  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+   .desktopView{
+   display: none
+ }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+ .desktopView{
+   display: none
+ }
+  
+}
+
+@media only screen and (max-width: 500px) {
+    /*body {
+        background-color: red;
+    }*/
+}
+
+.chatImg{
+  height: 75px;
+  width: 85px;
+  /* top: 38px; */
+  /* left: 10px; */
+  position: fixed;
+  bottom: 15px;
+  right: 0px;
+
+}
+.hide-render
+{
+  opacity: 0;
+}
+.show-render{
+  opacity: 1;
+  transform: 'translateX(-5%) translateY(-5%)'
+}

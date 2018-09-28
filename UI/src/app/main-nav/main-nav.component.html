@@ -1,0 +1,109 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/dashboard/home']" (click)="drawer.toggle()" [routerLinkActive]="['active']">Home</a>
+      <a mat-list-item *ngIf="zoneMarkFlag" style="cursor:pointer" (click)="drawer.toggle()" [routerLink]="['/dashboard/zonemark']"
+        [routerLinkActive]="['active']">Zone Marking</a>
+      <a mat-list-itemstyle="cursor:pointer" class="nav-link" [matMenuTriggerFor]="trainingForMobile">Training</a>
+      <a mat-list-item [routerLink]="['/dashboard/analytics']" (click)="drawer.toggle()" [routerLinkActive]="['active']">Analytics</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background: #16a282">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Disaster Vigilant</span>
+      <a [routerLink]="['/login']" id="logout" (click)="LogOut()" matTooltip="LogOut">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
+    </mat-toolbar>
+    <!--<span>{{firstName}}</span>-->
+    <div class="desktopView">
+      <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard/home']" [routerLinkActive]="['active']">Home</a>
+          </li>
+          <li class="nav-item" *ngIf="zoneMarkFlag">
+            <a class="nav-link" style="cursor:pointer" [routerLink]="['/dashboard/zonemark']" [routerLinkActive]="['active']">Zone Marking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer" [matMenuTriggerFor]="training">Training</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard/analytics']" [routerLinkActive]="['active']">Analytics</a>
+          </li>
+        </ul>
+      </nav>
+      <!--<mat-menu #map="matMenu" class="matMenu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" style="padding: 0px" [routerLink]="['/dashboard/site']" [routerLinkActive]="['active']"><button mat-menu-item >Site View</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="padding: 0px" [routerLink]="['/dashboard/ryb']" [routerLinkActive]="['active']"><button mat-menu-item >RYB View</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="padding: 0px" [routerLink]="['/dashboard/population']" [routerLinkActive]="['active']"><button mat-menu-item >Population View</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="padding: 0px" [routerLink]="['/dashboard/zonemark']" [routerLinkActive]="['active']"><button mat-menu-item >Zone Mark</button></a>
+            </li>
+          </ul>
+        </mat-menu>-->
+      <mat-menu #trainingForMobile="matMenu"  class="matMenu">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link"  style="padding: 0px" (click)="drawer.toggle()"  [routerLink]="['/dashboard/addChecklist']"  [routerLinkActive]="['active']">
+              <button mat-menu-item >Add Checklist</button>
+                </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"  style="padding: 0px" (click)="drawer.toggle()"  [routerLink]="['/dashboard/checklist']"  [routerLinkActive]="['active']">
+                    <button mat-menu-item >Checklist</button>
+                      </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link"  style="padding: 0px" (click)="drawer.toggle()"  [routerLink]="['/dashboard/tutorialVideos']"  [routerLinkActive]="['active']">
+                          <button mat-menu-item >Tutorial Videos</button>
+                            </a>
+                            </li>
+                            </ul>
+                            </mat-menu>
+
+                            <mat-menu #training="matMenu"  class="matMenu">
+                              <ul class="navbar-nav">
+                                <li class="nav-item">
+                                  <a class="nav-link"  style="padding: 0px"  [routerLink]="['/dashboard/addChecklist']"  [routerLinkActive]="['active']">
+                                    <button mat-menu-item >Add Checklist</button>
+                                      </a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link"  style="padding: 0px"  [routerLink]="['/dashboard/checklist']"  [routerLinkActive]="['active']">
+                                          <button mat-menu-item >Checklist</button>
+                                            </a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link"  style="padding: 0px"  [routerLink]="['/dashboard/tutorialVideos']"  [routerLinkActive]="['active']">
+                                                <button mat-menu-item >Tutorial Videos</button>
+                                                  </a>
+                                                  </li>
+                                                  </ul>
+                                                  </mat-menu>
+    </div>
+    <!--<ng-content></ng-content>-->
+    <router-outlet></router-outlet>
+    <div class="chatIcon">
+      <img class="chatImg float-right" src="assets/Images/chatTranparent.gif" (click)="renderEvent()">
+    </div>
+    <div *ngIf="renderFlag">
+      <div [@popOverState]="stateName" style="height:200px; width:400px;position: fixed; bottom:20%;right:4%;">
+        <app-render-component></app-render-component>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- renderFlag = !renderFlag -->

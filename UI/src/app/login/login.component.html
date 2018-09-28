@@ -1,0 +1,46 @@
+<!--<div class="loader"></div>-->
+<div class="container" *ngIf="spiner" style="text-align: center;margin:auto">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value">
+      </mat-progress-spinner>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="!(spiner)">
+  <div class="profile--open">
+    <div class="profile__avatar" id="toggleProfile">
+      <span style="font-weight: 800;position: relative;"><span>Disaster Vigilant</span></span>
+    </div>
+    <div class="profile__form">
+      <mat-progress-bar class="progress" mode="indeterminate" [hidden]="isNotLoading"></mat-progress-bar>
+      <div class="profile__fields">
+        <form class="form-horizontal" [formGroup]="form" (ngSubmit)="addPost(form.value)">
+          <div class="input-field">
+            <mat-form-field class="full-width" color="primary">
+              <input id="userName" matInput placeholder="User Name" formControlName="userName">
+            </mat-form-field>
+            <span class="alert" *ngIf="!form.controls['userName'].valid && form.controls['userName'].touched">Minimum 5 characters Required</span>
+
+          </div><br>
+          <div class="input-field">
+            <mat-form-field class="full-width" color="primary">
+              <input id="password" type="password" matInput placeholder="Password" formControlName="password">
+            </mat-form-field>
+            <span class="alert" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">Min 6 & Max 10 characters Required</span>
+
+          </div><br>
+          <div class="hyper">
+            <a class="register" style="cursor: pointer" (click)="registration()">Register</a>
+          </div>
+          <br>
+          <div class="profile__footer">
+            <button type="reset" class="btn reset" (click)="reset()">Reset</button>&nbsp;
+            <button type="submit" class="btn rit login" [disabled]="!form.valid">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
