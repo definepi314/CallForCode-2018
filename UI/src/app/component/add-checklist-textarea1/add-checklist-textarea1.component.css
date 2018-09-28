@@ -1,0 +1,10 @@
+green-border-focus .form-control:focus {
+    border: 1px solid #b9dcc7;
+    box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);
+}
+/* .mat-form-field{
+    width:87%
+} */
+::ng-deep textarea.mat-input-element {
+    padding: 0px 0;
+}

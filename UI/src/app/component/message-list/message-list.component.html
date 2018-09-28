@@ -1,0 +1,8 @@
+<div class="header-chat">BHOLU <br>
+<span class="header-des-chat">Your Chatbot Assistant</span>
+</div>
+<div class="chatlist" #chatlist>
+  <ul class="list-group">
+    <app-message-item *ngFor="let msg of messages" [message]="msg"></app-message-item>
+  </ul>
+</div>

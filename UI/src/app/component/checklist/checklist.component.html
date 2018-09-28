@@ -1,0 +1,26 @@
+<!-- <div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" style="margin-top:11%; margin-left:14%">
+    <img src="assets\Images\Wip.jpg" style="background-color:transparent">
+  </div>
+  <div class="col-md-3"></div>
+
+</div> -->
+<div class="main">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 break-word" *ngFor="let checklistObject of checkListArray">
+        <div class="row p-2 shadow">
+          <div class="col-md-4 border-color border-right-0 text-center pt-1 pb-1">
+            <img src="assets/Images/volcano1.jpg" alt="Avatar" class="rounded-circle max-def">
+          </div>
+          <div class="col-md-8 break-word border-color border-left-0">
+            <p class="h5 ">{{checklistObject.checklist}}</p>
+            <p class="h6">{{checklistObject.description}}</p>
+            <p id="details-Link" (click)="goToFillChekList(checklistObject)">Fill Details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

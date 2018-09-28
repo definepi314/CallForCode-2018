@@ -1,0 +1,6 @@
+::ng-deep.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+    background-color: #b9dcc7!important;
+   }
+.form-control {
+    width: 45%;
+}

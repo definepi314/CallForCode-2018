@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-2">
+      <ul *ngFor="let video of tutorialArray;let i = index" style="cursor:pointer">
+        <img id="logoDevops" src="assets/Images/videoLogo.jpg" />&nbsp;&nbsp;
+        <a (click)="videoLink(video)">{{video.videoName}}</a>
+      </ul>
+    </div>
+    <div class="col-sm-10">
+      <mat-video *ngIf="videoFlag" [src]="srcPath"></mat-video>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-md-10">
+      
+    </div>
+  </div> -->
+</div>
+<!-- <div class="main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 break-word" *ngFor="let video of videos">
+          <div class="row p-2 shadow">
+            <div class="col-md-2 border-color border-right-0 text-center pt-0 pb-1">
+              <img src="assets/Images/videoLogo.jpg" alt="Avatar">
+            </div>
+            <div class="col-md-4 break-word border-color border-left-0">
+                <a (click)="videoLink(video)">{{video.name}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

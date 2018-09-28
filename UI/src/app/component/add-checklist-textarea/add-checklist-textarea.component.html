@@ -1,0 +1,23 @@
+<div class="form-group green-border-focus">
+    <div class="row">
+        <div class="col-sm-6">
+            <mat-form-field>
+                <textarea matInput cdkTextareaAutosize placeholder="Checklist" #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="2"
+                    [(ngModel)]="comment" (blur)="emitData()"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="col-sm-1">
+            <i matTooltip="Add SubChecklist" id="addServiceButton" class="fa fa-plus-circle" style="font-size:24px;cursor:pointer" (click)="addMoreServices()"></i>
+            <!-- <button mat-button class="add" (click)="addMoreServices()">Add More Service</button> -->
+        </div>
+        <div class="col-sm-1">
+            <i matTooltip="Delete SubChecklist" id="deleteServiceButton1" class="fa fa-minus-circle" style="font-size:24px;opacity: 0.6;cursor:not-allowed"
+                (click)="DeleteServices()" disabled></i>
+        </div>
+    </div>
+</div>
+<div id="add" *ngFor="let x of sample">
+    <app-add-subchecklist-textarea (output)="serviceOutput($event)"></app-add-subchecklist-textarea>
+    <!-- <button mat-button class="add" (click)="DeleteServices()">Delete Service</button> -->
+</div>

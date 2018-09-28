@@ -1,0 +1,36 @@
+.message {
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: 400;
+    overflow-wrap: break-word;
+  }
+  
+  .timeform {
+    float: left;
+    width: 100%;
+  }
+  i {
+    margin-left: 20px;
+  }
+
+  .timestamp{
+    font-size: 0.6em;
+  }
+  .avatar{
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  /* ul.list-group:after {
+    clear: both;
+    display: block;
+    content: "";
+  } */
+  .list-group{
+    margin-top: 1%;
+  }
+  .list-group-item {
+      float: left;
+  }

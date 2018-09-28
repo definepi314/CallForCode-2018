@@ -1,0 +1,14 @@
+
+<ul class="list-group" >
+<li class="list-group-item" #listGroup>
+  <div class="d-inline">
+      <img [src]="message.avatar" class="avatar" #img/>
+  </div>
+  <div class="message d-inline font-weight-bold">
+    {{message.content}}
+  </div>
+  <div class="timeform">
+    <i class="fa fa-clock-o" aria-hidden="true"></i> <span class="timestamp">&nbsp;&nbsp;at  {{message.timestamp | date : 'medium' }}</span>
+  </div>
+</li>
+</ul>

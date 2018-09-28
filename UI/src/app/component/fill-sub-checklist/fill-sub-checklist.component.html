@@ -1,0 +1,33 @@
+<!-- <button (click)="onCloseClick()">close</button> -->
+
+
+<div class="border-bottom bg-green pb-2 pt-4 pl-3 pr-3 mb-3">
+  <div class="d-flex">
+    <div class="width-75">
+      <p class="h2 text-white">{{header}}</p>
+    </div>
+    <div class="float-right p-2">
+      <button class="btn btn-sm mr-2 btn-dark" (click)="onSubmitClick()">Submit</button>
+      <button  class="btn btn-sm ml-1 btn-danger" (click)="onCloseClick()">Close</button>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <p class="h6">{{subheader}}</p>
+  <div class="jumbotron">
+    <div class="d-flex flex-column border-bottom" *ngFor="let listObject of subCheckList; index as i">
+      <div class="p-3 d-flex flex-row">
+        <div class="break-word width-60">
+          {{listObject.name}}
+        </div>
+        <div>
+          <mat-radio-group class="each-radio-group" [(ngModel)]="radioObjects[i]">
+            <mat-radio-button class="each-radio-button" *ngFor="let option of options" [value]="option" (change)="radioChange($event)">
+              {{option}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

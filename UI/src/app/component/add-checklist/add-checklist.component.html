@@ -1,0 +1,63 @@
+<form [formGroup]="appDisasterForm">
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-sm-3">
+        <mat-form-field>
+          <mat-select placeholder="Select Disaster" (selectionChange)="changeList($event)" formControlName="disasterType">
+            <mat-option *ngFor="let list of checkLists" [value]="list">
+              {{list.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-3">
+        <mat-form-field>
+          <mat-select placeholder="Select Type" formControlName="tutorialType" (selectionChange)="changeType($event)">
+            <mat-option *ngFor="let type of checkTypes" [value]="type.value">
+              {{type.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-1" *ngIf="tutorialFlag">
+        <i matTooltip="Add Tutorial" id="addServiceButton" class="fa fa-plus-circle" style="font-size:24px;cursor:pointer" (click)="addMoreServices()"></i>
+        <!-- <button mat-button class="add" (click)="addMoreServices()">Add More Service</button> -->
+      </div>
+      <div class="col-sm-1" *ngIf="tutorialFlag">
+        <i matTooltip="Delete Tutorial" id="deleteServiceButton" class="fa fa-minus-circle" style="font-size:24px;opacity: 0.6;cursor:not-allowed"
+          (click)="DeleteServices()" disabled></i>
+        <!-- <button mat-button class="add" (click)="DeleteServices()">Delete Service</button> -->
+      </div>
+
+    </div>
+    <div class="row" *ngIf="checklistFlag">
+      <div class="col-sm-6">
+        <mat-form-field style="width: 469px;">
+          <textarea  matInput cdkTextareaAutosize placeholder="Description" #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="2"
+            formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+    <div *ngIf="checklistFlag">
+      <div id="add" *ngFor="let x of sample">
+        <app-add-checklist-textarea (output)="serviceOutput($event)"></app-add-checklist-textarea>
+      </div>
+    </div>
+
+    <div *ngIf="tutorialFlag">
+      <div id="add" *ngFor="let x of sample">
+        <app-add-checklist-textarea1 (output)="serviceOutput($event)"></app-add-checklist-textarea1>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col-md-2">
+          <button mat-raised-button style="background-color: #b9dcc7!important;" (click)="reset()">Reset</button>
+      </div> -->
+      <div class="col-md-2">
+        <button mat-raised-button style="background-color: #b9dcc7!important;" (click)="submitDisaster(appDisasterForm.value)">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</form>

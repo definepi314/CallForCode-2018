@@ -1,0 +1,23 @@
+<div class="form-group green-border-focus">
+    <div class="row">
+        <div class="col-sm-3">
+            <mat-form-field>
+                <textarea #tutorialName matInput cdkTextareaAutosize placeholder="TutorialName" #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="2" [formControl]="TutorialName" [(ngModel)]="name"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-3">
+            <mat-form-field>
+                <textarea #tutorialLink matInput cdkTextareaAutosize placeholder="TutorialLink" #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="2" [(ngModel)]="link" [formControl]="TutorialLink"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="col-md-2">
+            <button class="save" (click)="saveTutorial(tutorialName.value,tutorialLink.value)" [disabled]="isDisable" matTooltip="Save">
+                <mat-icon style="margin-top: 20%;cursor: pointer;">
+                    <i class="material-icons">check_circle</i>
+                </mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
