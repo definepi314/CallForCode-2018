@@ -1,0 +1,6 @@
+---
+applications:
+  - name: callforcode-ms-prod
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git#v3.8.1
+    path: target/CallForCode.jar
+ 
