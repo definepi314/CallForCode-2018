@@ -1,0 +1,52 @@
+{
+    "response": [
+        {
+            "checklist": "Medicine",
+            "description": "Medicine is very important for residants health consition during disaster. Some residants may need special medicines depending on their health condition.",
+            "subchecklist": [
+                "Medicine for special helalth condition?",
+                "Medicine for Fever and Headache",
+                "Medicine for Stomach Pain"
+            ]
+        },
+        {
+            "checklist": "Medicine",
+            "description": "Medicine is very important for residants health consition during disaster. Some residants may need special medicines depending on their health condition.",
+            "subchecklist": [
+                "Medicine for special helalth condition?",
+                "Medicine for Fever and Headache",
+                "Medicine for Stomach Pain"
+            ]
+        },
+        {
+            "checklist": "Medicine",
+            "description": "Medicine is very important for residants health consition during disaster. Some residants may need special medicines depending on their health condition.",
+            "subchecklist": [
+                "Medicine for special helalth condition?",
+                "Medicine for Fever and Headache",
+                "Medicine for Stomach Pain"
+            ]
+        },
+        {
+            "checklist": "Medicine",
+            "description": "Medicine is very important for residants health consition during disaster. Some residants may need special medicines depending on their health condition.",
+            "subchecklist": [
+                "Medicine for special helalth condition?",
+                "Medicine for Fever and Headache",
+                "Medicine for Stomach Pain"
+            ]
+        },
+        {
+            "checklist": "Medicine",
+            "description": "Medicine is very important for residants health consition during disaster. Some residants may need special medicines depending on their health condition.",
+            "subchecklist": [
+                "Medicine for special helalth condition?",
+                "Medicine for Fever and Headache",
+                "Medicine for Stomach Pain"
+            ]
+        }
+    ],
+    "message": null,
+    "exception": null
+} 
+ 

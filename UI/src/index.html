@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>CallForCode2018</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="BMSPushSDK.js" async></script>
+  <link rel="manifest" href="manifest.json">
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTnnlhDW71zaEyVichmDouZaH7p0_Of_g"></script> -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<script>
+  function myFunction() {
+    var bmsPush = new BMSPush()
+    function callback(response) {
+      alert(response, response)
+    }
+    var initParams = {
+      "appGUID": "4e068e08-2985-4304-899e-f1fe28a4c65d",
+      "appRegion": ".ng.bluemix.net",
+      "clientSecret": "f7cd2a7b-770d-4305-adff-bcf3bd4a1f7e"
+    }
+    bmsPush.initialize(initParams, callback)
+
+    bmsPush.register(function (response) {
+      alert(response, response)
+    })
+  }
+</script>
+<!-- Highcharts Scripts -->
+<!-- <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>  -->
+<!-- Ends -->
+<body>
+  <app-root></app-root>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+
+
+</html>
